@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded',(event) => {
     const name = document.querySelector('#name');
     const textError = document.querySelector('.text-error');
     name.addEventListener('input',function(){
-        if (name.value.lenght == 0) {
+        if (!name.value || name.value == null || name.value == "" || name.value.length == 0) {
             textError.textContent = "";
             return;
         }
