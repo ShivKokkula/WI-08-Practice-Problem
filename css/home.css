@@ -152,12 +152,9 @@ td img{
     font-weight: 300;
     margin-bottom: 8px;
 }
-.delete{
-    width: 5%;
-}
-.edit{
-    width: 5%;
-}
 .profile{
-    width: 40%;
+    width: 20%;
+}
+.fa{
+    margin: 10px;
 }
