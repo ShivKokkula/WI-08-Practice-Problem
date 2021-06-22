@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded',(event) =>{
 });
 
 const createInnerHTML = () => {
-    const innerHTML = `
+    const headerHtml = `
     <tr>
         <th></th>
         <th>Name</th>
@@ -12,7 +12,9 @@ const createInnerHTML = () => {
         <th>Salary</th>
         <th>Start Date</th>
         <th>Actions</th>
-    </tr>
+    </tr>`;
+    const innerHtml = `
+    ${headerHtml}
     <tr>
         <td><img class="profile" src="../assets/logo1.PNG" alt="profile pic"></td>
         <td>Sagar</td>
@@ -27,5 +29,5 @@ const createInnerHTML = () => {
         </td>
     </tr>
     `;
-    document.querySelector('#table-display').innerHTML = innerHTML;
+    document.querySelector('#table-display').innerHTML = innerHtml;
 }
