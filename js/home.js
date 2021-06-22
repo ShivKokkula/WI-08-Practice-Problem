@@ -14,7 +14,7 @@ const createInnerHTML = () => {
         <th>Actions</th>
     </tr>`;
 
-    let empPayRollData = createEmployeePayRollJSON()[0];
+    let empPayRollData = createEmployeePayRollJSON()[1];
 
     const innerHtml = `
     ${headerHtml}
@@ -22,8 +22,7 @@ const createInnerHTML = () => {
         <td><img class="profile" src="${empPayRollData._profilePic}" alt="profile pic"></td>
         <td>${empPayRollData._name}</td>
         <td>${empPayRollData._gender}</td>
-        <td><div class="dept-label">${empPayRollData._department[0]}</div>
-            <div class="dept-label">${empPayRollData._department[1]}</div></td>
+        <td>${getDepHtml(empPayRollData._department)}</td>
         <td>${empPayRollData._salary}</td>
         <td>${empPayRollData._startDate}</td>
         <td>
@@ -33,6 +32,14 @@ const createInnerHTML = () => {
     </tr>
     `;
     document.querySelector('#table-display').innerHTML = innerHtml;
+}
+
+const getDepHtml = (deptlist) => {
+    let deptHtml = ''
+    for (const dept of deptlist) {
+        deptHtml = `${deptHtml}<div class="dept-label">${dept}</div>`;
+    }
+    return deptHtml;
 }
 
 let createEmployeePayRollJSON = () => {
