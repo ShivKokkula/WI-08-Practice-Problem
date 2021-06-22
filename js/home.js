@@ -13,24 +13,26 @@ const createInnerHTML = () => {
         <th>Start Date</th>
         <th>Actions</th>
     </tr>`;
+    let innerHtml = `${headerHtml}`;
 
-    let empPayRollData = createEmployeePayRollJSON()[1];
-
-    const innerHtml = `
-    ${headerHtml}
-    <tr>
-        <td><img class="profile" src="${empPayRollData._profilePic}" alt="profile pic"></td>
-        <td>${empPayRollData._name}</td>
-        <td>${empPayRollData._gender}</td>
-        <td>${getDepHtml(empPayRollData._department)}</td>
-        <td>${empPayRollData._salary}</td>
-        <td>${empPayRollData._startDate}</td>
-        <td>
-            <span name="${empPayRollData._id}" class="fa fa-trash" id="1" onclick="remove(this)"></span>
-            <span name="${empPayRollData._id}" class="fa fa-pencil" id="2" onclick="update(this)"></span>
-        </td>
-    </tr>
-    `;
+    let empPayRollDataList = createEmployeePayRollJSON();
+    for( const empPayRollData of empPayRollDataList){
+        innerHtml = `${innerHtml}
+        <tr>
+            <td><img class="profile" src="${empPayRollData._profilePic}" alt="profile pic"></td>
+            <td>${empPayRollData._name}</td>
+            <td>${empPayRollData._gender}</td>
+            <td>${getDepHtml(empPayRollData._department)}</td>
+            <td>${empPayRollData._salary}</td>
+            <td>${empPayRollData._startDate}</td>
+            <td>
+                <span name="${empPayRollData._id}" class="fa fa-trash" id="1" onclick="remove(this)"></span>
+                <span name="${empPayRollData._id}" class="fa fa-pencil" id="2" onclick="update(this)"></span>
+            </td>
+        </tr>
+        `;
+    }
+    
     document.querySelector('#table-display').innerHTML = innerHtml;
 }
 
